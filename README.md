@@ -18,12 +18,14 @@ Le projet inclut une interface HTML ainsi qu’une API REST JSON.
 - HTML (Jinja2)
 - CSS (minimal)
 
+## Apperçu
+http://127.0.0.1:5000
+
 ## Installation
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-## Apperçu
-http://127.0.0.1:5000
+
 
