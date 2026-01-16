@@ -5,15 +5,11 @@ from db import init_db, tout_lire, lire_un, creer, modifier, supprimer
 def creer_app() -> Flask:
     app = Flask(__name__)
 
-    # -----------------------
     # Initialisation de la base de données
-    # -----------------------
     with app.app_context():
         init_db()
 
-    # -----------------------
     # Routes HTML
-    # -----------------------
     @app.get("/")
     def accueil():
         elements = tout_lire()
@@ -47,9 +43,7 @@ def creer_app() -> Flask:
         supprimer(element_id)
         return redirect(url_for("accueil"))
 
-    # -----------------------
     # API JSON (REST)
-    # -----------------------
     @app.get("/api/elements")
     def api_lister():
         elements = tout_lire()
@@ -105,9 +99,7 @@ def creer_app() -> Flask:
         supprimer(element_id)
         return jsonify({"message": "Supprimé"}), 200
 
-    # -----------------------
     # Gestion des erreurs (404)
-    # -----------------------
     @app.errorhandler(404)
     def page_introuvable(_):
         if request.path.startswith("/api/"):
